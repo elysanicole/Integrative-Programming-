@@ -1,0 +1,12 @@
+Task 3: Answer the Guide Questions
+
+What is the difference between readyState and status in XMLHttpRequest?
+-Both the readyState and status in XMLHttpRequest have different purposes for evaluating the status and outcome of an HTTP request. The request's current status is shown by the readyState property which ranges from "0" (unsent) to "4" (done). It shows the request's progress including whether it has been submitted, started, or finished. The status property on the other hand shows the HTTP response code that the server produced which may be 200 for success,404 for not found or 500 for a server error. Simply said status informs the result of the request after it is finished while readyState informs you *what stage the request is at present in. 
+
+
+How can you make the request asynchronous?
+-Asynchronous web app communication is non-negotiable because it stops the browser single-threaded event loop from blocking—like when my sync  XMLHttpRequest  froze my e-commerce lab projects checkout UI during a simulated 3-second network delay—letting users keep typing, clicking, or navigating while waiting for server API/database responses, which directly ties to the time-to-interactive metrics we optimized in our front-end performance coursework and fixes the "unresponsive script" errors we debugged in legacy JS framework drills.
+
+
+Why is asynchronous communication recommended for web applications?
+-Because asynchronous communication keeps the browsers main thread from being blocked it is advised for web applications.This means that even while the application waits for information from the server, the user interface will stay responsive and interactive.In the case of "https://jsonplaceholder.typicode.com/posts/1,".for example, the user can still interact with other elements on the page without any delays while the program is retrieving the post data.

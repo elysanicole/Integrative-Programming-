@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Exercise 2 </title>
+    <style>
+body {
+            font-family:'Times New Roman', Times, serif ;
+            margin: 50px;
+            background-color: hsl(47, 95%, 92%);
+            color: #9b6e21;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            color: #413708e6;
+            text-align: center;
+            margin-bottom: 30px;
+            letter-spacing: 0.5px;
+        }
+
+        #loadData {
+      background-color: #e1ab08e3;
+      color:#604816;
+      font-size: 16px;
+      font-weight: 200;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(64, 115, 158, 0.3);
+      resize: both;         
+      overflow: auto;        
+      display: inline-block;
+      text-align: center;
+      min-width: 120px;
+      min-height: 40px;
+      max-width: 300px;
+      max-height: 100px;
+    }
+        button {
+            background-color: #e1ab08e3;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #c2b30dd4;
+            transform: translateY(-4px);
+        }
+     
+        #loadData:active {
+      background-color: #ffe565;
+      transform: scale(0.98);
+    }
+
+        #output {
+      margin-top: 25px;
+      padding: 20px;
+      width: 90%;
+      max-width: 600px;
+      min-width: 250px;
+      min-height: 100px;
+      border-radius: 10px;
+      border: 1px solid #dcdde1;
+      background: #ffffff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      line-height: 1.6;
+      transition: all 0.3s ease;
+      resize: both;           
+      overflow: auto;    
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Exploring XMLHttpRequest</h2>
+    <button id="loadData">Load Post Data</button>
+    <div id="output"></div>
+
+    <script>
+        document.getElementById("loadData").addEventListener("click", function() {
+            const xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    const output = document.getElementById("output");
+                    if (xhr.status === 200) {
+                        const data = JSON.parse(xhr.responseText);
+                        output.innerHTML = `
+                            <strong>Post Title:</strong> ${data.title}<br><br>
+                            <strong>Content:</strong> ${data.body}
+                        `;
+                    } else {
+                        output.innerHTML = `<span style="color:red;">Error: ${xhr.status} - ${xhr.statusText}</span>`;
+                    }
+                }
+            };
+
+            xhr.open("GET", "https://jsonplaceholder.typicode.com/posts/1", true);
+            xhr.send();
+        });
+    </script>
+</body>
+</html>
