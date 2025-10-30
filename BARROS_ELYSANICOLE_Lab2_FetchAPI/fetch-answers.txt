@@ -1,0 +1,18 @@
+Guide Questions
+
+
+1.What are the main differences between XMLHttpRequest and Fetch API?
+-JavaScript can be used to retrieve data from the server using both the Fetch API or XMLHttpRequest (XHR), but Fetch is the more recent and latest version.  Because it requires users to build an XHR object, start a connection handle multiple request stages, and use callbacks, which can result in confusing code, XHR is beyond to a little harder to use. While fetch is easier and simple. The use of expectations helps reading and managing the code, even when handling many requests. Also, Fetch's design is more in line with current web standards enhancing its strength and adaptability for tasks like managing data streams. Fetch is typically used for new projects since it is a more simple and user-friendly API, even though XHR still functions.
+
+
+2.Why is the Fetch API considered more modern and readable?
+-Because the Fetch API uses Promises rather than callbacks,which were typical with XMLHttpRequest (XHR) it is thought to be more contemporary and readable. Asynchronous operations can be handled more neatly and methodically with promises. Promises make the code flow considerably more linear and understandable by allowing you to chain ".then()" blocks to process the response and ".catch()" to manage problems. By doing XHR avoided the "callback hell" situation, in which layered callbacks rendered the code hard to comprehend and maintain. Fetch is also easier to comprehend and more developer-friendly because to its simpler and more intuitive API design than XHR.
+
+
+3.What is the purpose of the .then() and .catch() methods in Fetch?
+- ".then()" : This method is used to handle the successful completion of a Fetch request. It's chained after the fetch() call and is executed when the Promise resolves successfully. Inside the .then() block, you typically process the response from the server. This often involves parsing the response (e.g., using .json() to convert the response body to a JavaScript object) and then performing actions with the data. You can chain multiple .then() blocks to perform a series of operations on the result.
+  ".catch()" : This method is used to handle any errors that occur during the Fetch request. It's also chained after the fetch() call (or after a .then() block) and is executed if the Promise is rejected due to an error (e.g., network issues, server errors). Inside the .catch() block, you typically handle the error by logging it, displaying an error message to the user, or taking other appropriate actions to gracefully handle the failure.   
+
+
+4.What happens when you send a POST request to the placeholder API?
+-When you send a POST request to the JSONPlaceholder API's `/posts` endpoint, the service receives your request and simulates the creation of a new post. since JSONPlaceholder is designed for testing,it does not actually store any data.it responds as if the post was successfully created returning a `201 Created` status code along with a JSON object that includes the data you sent and a simulated `id` for the new post.it allows to test the code ability to create and handle new resources without affecting any real data.
